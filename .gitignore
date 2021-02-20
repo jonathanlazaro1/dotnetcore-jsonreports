@@ -1,0 +1,14 @@
+# VSCode folders
+**/.vscode
+
+# .NET Core build directories
+**/bin
+**/obj
+
+# .NET Core AppSettings
+**/appsettings.json
+**/appsettings.*.json
+!**/appsettings.Example.json
+
+**/Properties/*
+!**/Properties/launchSettings.Example.json
