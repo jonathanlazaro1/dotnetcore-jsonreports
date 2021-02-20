@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  pgsqldb:
+    image: postgres:12
+    ports:
+      - "5433:5432"
+    restart: always
+    networks:
+      - reportsnetwork
+    environment:
+      POSTGRES_PASSWORD: abc12345
+
+  jsonreports:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:80"
+    networks:
+      - reportsnetwork
+    environment:
+      - JSWR_ConnectionStrings__StoreContext=Host=pgsqldb;Port=5432;Database=StoreContext;Username=postgres;Password=abc12345
+
+networks:
+  reportsnetwork:
+    driver: bridge
