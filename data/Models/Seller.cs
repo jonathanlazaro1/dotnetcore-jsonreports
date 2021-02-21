@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace JsonReports.Web.Models
+namespace JsonReports.Models
 {
     public class Seller
     {

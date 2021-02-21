@@ -1,7 +1,7 @@
-using JsonReports.Web.Models;
+using JsonReports.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace JsonReports.Web.Data
+namespace JsonReports.Data
 {
     public class StoreContext : DbContext
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace JsonReports.Web.Data.Migrations
+namespace JsonReports.Data.Migrations
 {
     public partial class Initial : Migration
     {

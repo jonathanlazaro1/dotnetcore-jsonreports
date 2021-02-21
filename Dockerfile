@@ -1,4 +1,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build-env
+
+WORKDIR /data
+COPY data/ ./
+
 WORKDIR /web
 
 # Copy csproj and restore as distinct layers
