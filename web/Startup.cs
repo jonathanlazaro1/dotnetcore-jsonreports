@@ -1,4 +1,5 @@
 using JsonReports.Data;
+using JsonReports.Data.Utils;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -48,6 +49,7 @@ namespace JsonReports.Web
             {
                 var storeDb = scope.ServiceProvider.GetRequiredService<StoreContext>();
                 storeDb.Database.Migrate();
+                StoreContextPopulator.Populate(storeDb);
             }
             // }
 
