@@ -24,10 +24,15 @@ namespace JsonReports.Web
         {
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "JsonReports.Web", Version = "v1" });
             });
+
+            services.AddHealthChecks()
+                .AddDbContextCheck<StoreContext>();
+
 
             services.AddDbContext<StoreContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("StoreContext")));
@@ -62,6 +67,7 @@ namespace JsonReports.Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
