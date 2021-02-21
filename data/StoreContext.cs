@@ -10,6 +10,10 @@ namespace JsonReports.Data
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Sale>()
+                .Property(s => s.Amount)
+                .HasColumnType("decimal(15,2)");
+
+            modelBuilder.Entity<Sale>()
                 .HasOne(s => s.Customer)
                 .WithMany()
                 .IsRequired()
